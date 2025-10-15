@@ -12,6 +12,10 @@ Route::get('/', function () {
 
 Route::resource('expenses', ExpensesController::class);
 
+Route::get('/table', [ExpensesController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('table');
+
 // Route::get('/dashboard', function () {
 //     return view('expenses.index'); //dashboard
 // })->middleware(['auth', 'verified'])->name('dashboard');

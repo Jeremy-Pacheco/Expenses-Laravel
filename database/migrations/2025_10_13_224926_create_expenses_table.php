@@ -11,9 +11,28 @@ return new class extends Migration
      */
     public function up(): void
     {
+//         - Alimentación – 
+// - Transporte –
+// - Vivienda – 
+// - Salud – 
+// - Educación –
+// - Entretenimiento –
+// - Finanzas – 
+// -Otro
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-            $table->string('category');
+            $table->enum('category', [
+            'Food',
+            'Transport',
+            'Housing',
+            'Health',
+            'Education',
+            'Entertainment',
+            'Finance',
+            'Leisure',
+            'Others'
+            ]);
+
             $table->decimal('mount', 10, 2);//número total de digitos y número de dígitos después del punto decimal
             $table->string('description');
             $table->date('purchase_date');

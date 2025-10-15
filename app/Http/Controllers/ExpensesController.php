@@ -7,11 +7,11 @@ use App\Models\Expense;
 
 class ExpensesController extends Controller
 {
-    // public function index()
-    // {
-    //     $expenses = Expense::all();
-    //     return view('expenses.index', compact('expenses')); //expenses.index
-    // }
+    public function index()
+    {
+        $expenses = Expense::all();
+        return view('expenses.index', compact('expenses')); //expenses.index
+    }
 
     public function create()
     {
@@ -26,6 +26,6 @@ class ExpensesController extends Controller
         $expense->mount = $request->input('mount');
         $expense->description = $request->input('description');
         $expense->purchase_date = $request->input('purchase_date');
-        $expense->save();
+        //$expense->save();
     }
 }
