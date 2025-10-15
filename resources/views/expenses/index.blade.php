@@ -7,21 +7,19 @@
         <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg px-6 py-6">
 
-                {{-- Mensaje de éxito --}}
                 @if (session('success'))
                     <div class="mb-4 text-green-600 font-semibold">
                         {{ session('success') }}
                     </div>
                 @endif
 
-                {{-- Botón para crear nuevo gasto --}}
                 <div class="flex justify-end mb-4">
-                    <a href="{{ route('expenses.create') }}" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    <a href="{{ route('expenses.create') }}"
+                        class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
                         + Add Expense
                     </a>
                 </div>
 
-                {{-- Tabla de gastos --}}
                 <table class="min-w-full border border-gray-300">
                     <thead class="bg-gray-100">
                         <tr>
@@ -40,8 +38,22 @@
                                 <td class="border px-4 py-2">{{ $expense->description }}</td>
                                 <td class="border px-4 py-2">{{ $expense->purchase_date }}</td>
                                 <td class="border px-4 py-2">
-                                    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Edit</button>
-                                    <button class="bg-red-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600">Delete</button>
+                                    <div class="flex flex-col md:flex-row md:space-x-2 space-y-2 md:space-y-0">
+                                        <a href="{{ route('expenses.edit', $expense->id) }}"
+                                            class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 text-center">
+                                            Edit
+                                        </a>
+
+                                        <form action="{{ route('expenses.destroy', $expense->id) }}" method="POST"
+                                            class="w-full md:w-auto">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit"
+                                                class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full">
+                                                Delete
+                                            </button>
+                                        </form>
+                                    </div>
                                 </td>
                             </tr>
                         @empty
@@ -56,21 +68,3 @@
         </div>
     </div>
 </x-app-layout>
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Expenses</title>
-</head>
-<body>
-    <h1>Listado de gastoy</h1>
-    <ul>
-        @foreach ($expenses as $expense)
-            <li>{{$expense->category}}{{$expense->mount}}{{$expense->description}}{{$expense->purchase_date}}</li>
-        @endforeach
-    </ul>
-</body>
-</html> --}}

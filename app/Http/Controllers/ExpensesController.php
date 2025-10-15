@@ -10,22 +10,60 @@ class ExpensesController extends Controller
     public function index()
     {
         $expenses = Expense::all();
-        return view('expenses.index', compact('expenses')); //expenses.index
+        return view('expenses.index', compact('expenses'));
     }
 
+    // Mostrar formulario vacío
     public function create()
     {
-        $expenses = Expense::all();
-        return view('expenses.create', compact('expenses'));
+        $expense = new Expense(); // vacío
+        $isEdit = false; // para saber si estamos editando
+        return view('expenses.create', compact('expense', 'isEdit'));
     }
 
+    // Guardar nuevo registro
     public function store(Request $request)
     {
-        $expense = new Expense;
-        $expense->category = $request->input('category');
-        $expense->mount = $request->input('mount');
-        $expense->description = $request->input('description');
-        $expense->purchase_date = $request->input('purchase_date');
-        //$expense->save();
+        $validated = $request->validate([
+            'category' => 'required|in:Food,Transport,Housing,Health,Education,Entertainment,Finance,Leisure,Others',
+            'mount' => 'required|numeric|min:0',
+            'description' => 'required|string|max:255',
+            'purchase_date' => 'required|date',
+        ]);
+
+        Expense::create($validated);
+        return redirect()->route('expenses.index')->with('success', 'Expense created successfully!');
+    }
+
+    // Mostrar formulario con datos existentes
+    public function edit(Expense $expense)
+    {
+        $isEdit = true;
+        return view('expenses.create', compact('expense', 'isEdit'));
+    }
+
+    // Actualizar registro
+    public function update(Request $request, Expense $expense)
+    {
+        $validated = $request->validate([
+            'category' => 'required|in:Food,Transport,Housing,Health,Education,Entertainment,Finance,Leisure,Others',
+            'mount' => 'required|numeric|min:0',
+            'description' => 'required|string|max:255',
+            'purchase_date' => 'required|date',
+        ]);
+
+        $expense->update($validated);
+        return redirect()->route('expenses.index')->with('success', 'Expense updated successfully!');
+    }
+
+     /**
+     * Eliminar un gasto
+     */
+    public function destroy(Expense $expense)
+    {
+        $expense->delete();
+
+        return redirect()->route('expenses.index')
+                         ->with('success', 'Expense deleted successfully!');
     }
 }

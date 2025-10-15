@@ -6,19 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
-//         - Alimentación – 
-// - Transporte –
-// - Vivienda – 
-// - Salud – 
-// - Educación –
-// - Entretenimiento –
-// - Finanzas – 
-// -Otro
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
             $table->enum('category', [
@@ -40,9 +29,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('expenses');
