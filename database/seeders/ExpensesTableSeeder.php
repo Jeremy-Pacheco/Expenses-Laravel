@@ -15,8 +15,20 @@ class ExpensesTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('expenses')->insert([
-            ['category'=>'Leisure', 'mount'=>9.99, 'description'=>'Movie ticket', 'purchase_date'=>'2025-10-13'],//YYY-MM-DD
-            ['category'=>'Transport', 'mount'=>1.60, 'description'=>'Transport ticket', 'purchase_date'=>'2025-10-09'],
+            [
+                'user_id' => 1,
+                'category'=>'Leisure', 
+                'mount'=>9.99, 
+                'description'=>'Movie ticket', 
+                'purchase_date'=>'2025-10-13'
+            ],
+            [
+                'user_id' => 1,
+                'category'=>'Transport', 
+                'mount'=>1.60, 
+                'description'=>'Transport ticket', 
+                'purchase_date'=>'2025-10-09'
+            ],
         ]);
     }
 }

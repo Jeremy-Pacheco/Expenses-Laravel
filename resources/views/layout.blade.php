@@ -1,4 +1,4 @@
-<html>
+{{-- <html>
     <head>
         <title>Expenses</title>
     </head>
@@ -8,4 +8,4 @@
             @yield('content')
         </div>
     </body>
-</html>
+</html> --}}

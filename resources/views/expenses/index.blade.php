@@ -12,6 +12,11 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                @if (session('delete'))
+                    <div class="mb-4 text-red-600 font-semibold">
+                        {{ session('delete') }}
+                    </div>
+                @endif
 
                 <div class="flex justify-end mb-4">
                     <a href="{{ route('expenses.create') }}"
