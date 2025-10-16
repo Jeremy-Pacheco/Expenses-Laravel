@@ -13,7 +13,7 @@ class ExpensesTableSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {       //!Activate it when you create a user and run the seeder.
+    {       //TODO: Activate it when you create a user and run the seeder.
         // DB::table('expenses')->insert([
         //     [
         //         'user_id' => 1,
