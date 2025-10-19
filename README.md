@@ -7,55 +7,73 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# 💰 Laravel Multi-User Expense Manager
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This project is a **Laravel web application** that allows multiple users to register, log in, and manage their personal expenses securely.  
+Each user can **create, read, update, and delete (CRUD)** their own expenses, while being restricted from accessing others’ data.  
+The app uses **Laravel Breeze** for authentication and **Tailwind CSS + Vite** for styling and asset compilation.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🛠️ Built With
 
-## Learning Laravel
+- [Laravel](https://laravel.com/) – Backend framework  
+- [Laravel Breeze](https://laravel.com/docs/starter-kits#breeze) – Authentication system  
+- [Tailwind CSS](https://tailwindcss.com/) – CSS styling  
+- [Vite](https://vitejs.dev/) – Asset bundler  
+- [MySQL](https://www.mysql.com/) – Database  
+- [Composer](https://getcomposer.org/) – PHP dependency manager  
+- [Node.js & npm](https://nodejs.org/) – JavaScript tooling  
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## ✨ Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- 🔐 **User Authentication** using [Laravel Breeze](https://laravel.com/docs/starter-kits#breeze) (Login, Register, Logout).  
+- 👥 **Multi-User Support** — each user only sees their own expenses.  
+- 💸 **Expense CRUD** — Create, Read, Update, Delete personal expenses.  
+- 📊 **Expense Categories** — Food, Transport, Housing, Health, Education, Entertainment, Finance, Leisure, Others.  
+- 📅 **Purchase Date tracking** for all expenses.  
+- ✅ **Form Validation** for all inputs.  
+- 🎨 **Tailwind CSS + Vite** for modern, fast, responsive UI.  
+- ⚡ **Laravel Migrations & Seeders** for database setup.  
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🚀 Getting Started
 
-### Premium Partners
+Follow these steps to set up the project locally for development and testing.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+### 📋 Prerequisites
 
-## Contributing
+Make sure you have the following installed:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- PHP >= 8.1  
+- Composer  
+- Node.js and npm  
+- MySQL 
+- [Laragon](https://laragon.org/) or another local server (XAMPP, WAMP, etc.)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 🔧 Installation
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/Jeremy-Pacheco/Expenses-Laravel.git
+cd Expenses-Laravel
+cp .env.example.env
+composer install
+php artisan key:generate
+php artisan migrate
+php artisan serve
+php install
+php run dev
+```
 
-## License
+## ✒️ Authors
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [**Jeremy-Pacheco**](https://github.com/Jeremy-Pacheco) – *Project Creator & Main Developer* 🧑‍💻  
+  - Implemented **Laravel Breeze** authentication  
+  - Added full **multi-user expense CRUD** system  
+  - Configured **migrations**, **seeders**, and **validation**
